@@ -161,4 +161,15 @@ $$
 但今天，你只需要让它学会 **从坐标猜氨基酸**。
 Go, build, and let the $F_2$ be with you! 🦾
 
+## 数据来源与许可
+
+本题所使用的数据集基于 CATH 4.4 非冗余数据集（Waman et al., 2025）进行筛选与处理。原始 CATH 4.4 数据由 [UCL 研究团队](https://www.ucl.ac.uk/research/our-people-and-teams) 发布，采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.txt)。
+我们对原始数据进行了以下处理：移除缺失 Cα 坐标的残基，并将序列坐标和氨基酸标签按样本整理为 CSV 格式。
+
+本题目的文本、题目设计及数据集衍生部分由 [cyx012113](https://github.com/cyx012113) 创作，整体采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt) 许可。
+这意味着你可以自由分享、改编这道题目，但必须给出适当署名、不得用于商业目的，且任何改编作品必须采用相同的许可证。
+
+- 原始 CATH 4.4 许可：<https://creativecommons.org/licenses/by/4.0>
+- 本题目许可：<https://creativecommons.org/licenses/by-nc-sa/4.0>
+
 <div align="center"> &copy cyx012113 2026. </div>

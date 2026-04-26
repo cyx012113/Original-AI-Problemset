@@ -82,11 +82,11 @@ Conversion table that can be used directly in code:
 
 ```python
 aa2id = {
-    'A': 0, 'C': 1, 'D': 2, 'E': 3, 'F': 4, 'G': 5, 'H': 6, 'I': 7, 'K': 8, 'L': 9, 
+    'A': 0, 'C': 1, 'D': 2, 'E': 3, 'F': 4, 'G': 5, 'H': 6, 'I': 7, 'K': 8, 'L': 9,
     'M': 10, 'N': 11, 'P': 12, 'Q': 13, 'R': 14, 'S': 15, 'T': 16, 'V': 17, 'W': 18, 'Y': 19
 }
 id2aa = {
-    0: 'A', 1: 'C', 2: 'D', 3: 'E', 4: 'F', 5: 'G', 6: 'H', 7: 'I', 8: 'K', 9: 'L', 
+    0: 'A', 1: 'C', 2: 'D', 3: 'E', 4: 'F', 5: 'G', 6: 'H', 7: 'I', 8: 'K', 9: 'L',
     10: 'M', 11: 'N', 12: 'P', 13: 'Q', 14: 'R', 15: 'S', 16: 'T', 17: 'V', 18: 'W', 19: 'Y'
 }
 ```
@@ -127,3 +127,14 @@ Participants need to generate corresponding prediction result files for `A.csv` 
 
 - CATH 4.4 database paper: Waman, V. P., et al. (2025). CATH v4.4: major expansion of CATH by experimental and predicted structural data. _Nucleic Acids Research_, 53(D1), D348–D355. doi:[10.1093/nar/gkae1087](https://doi.org/10.1093/nar/gkae1087), included in the dataset archive.
 - Inverse folding related methods: PiFold, ProteinMPNN, etc. (ArXiv preprints can be consulted independently).
+
+## Data Source and License
+
+The dataset used in this problem is derived from the CATH 4.4 non-redundant dataset (Waman et al., 2025) through filtering and processing. The original CATH 4.4 data is released by the [UCL research team](https://www.ucl.ac.uk/research/our-people-and-teams) under the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode.txt) license.  
+We have applied the following processing: residues with missing Cα coordinates have been removed, and the sequential coordinates together with amino acid labels have been organized into CSV format on a per-sample basis.
+
+The problem statement, its design, and the derived portions of the dataset were created by [cyx012113](https://github.com/cyx012113) and are licensed as a whole under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt).  
+This means you are free to share and adapt this problem, provided that you give appropriate credit, do not use it for commercial purposes, and any adaptations must be distributed under the same license.
+
+- Original CATH 4.4 license: <https://creativecommons.org/licenses/by/4.0>
+- This problem’s license: <https://creativecommons.org/licenses/by-nc-sa/4.0>
