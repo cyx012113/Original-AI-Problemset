@@ -1,7 +1,9 @@
 # 🌌 宇宙探针：当 AI 被拉去当天文学家 🔭
 
-[![Challenge](https://img.shields.io/badge/NOAI-2026-blue)](https://github.com/your-repo)
+![Challenge](https://img.shields.io/badge/APOAI-2026-blue)
 [![Astronomy](https://img.shields.io/badge/AI%20for%20Science-Cosmic%20Classifier-purple)](https://arxiv.org/abs/2112.02026)
+
+**备注：此题入选了 APOAI 2026 T1。**
 
 > **“给你五个波段的亮度数据，你能区分出星星、星系和黑洞贪吃鬼吗？”**
 > —— 欢迎来到 **SDSS 星体分类挑战**，让你足不出户，体验一把 **数字天文学家** 的日常。
