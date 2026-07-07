@@ -16,28 +16,25 @@
 
 **输入（$X$）**：每条实验记录的以下特征——
 
-| 维度     | 特征                     | 说明                                               |
-| -------- | ------------------------ | -------------------------------------------------- |
-| 运行负载 | `lambda_qps`             | 请求到达率（每秒查询数），$-1$ 表示离线批处理      |
-| 运行负载 | `scenario`               | 运行场景：`offline` / `server_low` / `server_high` |
-| 运行负载 | `avg_prompt_tokens`      | 平均每条请求的输入 Token 数                        |
-| 运行负载 | `avg_generation_tokens`  | 平均每条请求的输出 Token 数                        |
-| 运行负载 | `num_requests`           | 该实验包含的请求数量                               |
-| 模型参数 | `total_b_params`         | 模型总参数量（十亿）                               |
-| 模型参数 | `num_layers`             | Transformer 层数                                   |
-| 模型参数 | `hidden_size`            | 隐藏层维度                                         |
-| 模型参数 | `num_attention_heads`    | 注意力头数                                         |
-| 模型参数 | `num_key_value_heads`    | KV 头数（GQA 相关）                                |
-| 模型参数 | `model_type`             | 模型架构家族（如 `llama`、`qwen2` 等）             |
-| 硬件规格 | `memory_bandwidth_gb_s`  | GPU 显存带宽（GB/s）                               |
-| 硬件规格 | `tflops_16b`             | GPU FP16 算力（TFLOPS）                            |
-| 硬件规格 | `thermal_design_power_w` | GPU 热设计功耗（TDP，瓦）                          |
-| 硬件规格 | `memory_size_gb`         | GPU 显存容量（GB）                                 |
-| 硬件规格 | `release_year`           | GPU 发布年份                                       |
-| 硬件规格 | `base_clock_mhz`         | GPU 基础频率（MHz）                                |
-| 硬件规格 | `boost_clock_mhz`        | GPU 加速频率（MHz）                                |
-| 硬件规格 | `architecture`           | GPU 架构名称                                       |
-| 硬件规格 | `memory_type`            | 显存类型（`HBM2e` / `GDDR6` 等）                   |
+| 维度     | 特征                    | 说明                                               |
+| -------- | ----------------------- | -------------------------------------------------- |
+| 运行负载 | `lambda_qps`            | 请求到达率（每秒查询数），$-1$ 表示离线批处理      |
+| 运行负载 | `scenario`              | 运行场景：`offline` / `server_low` / `server_high` |
+| 运行负载 | `avg_prompt_tokens`     | 平均每条请求的输入 Token 数                        |
+| 运行负载 | `avg_generation_tokens` | 平均每条请求的输出 Token 数                        |
+| 运行负载 | `num_requests`          | 该实验包含的请求数量                               |
+| 模型参数 | `total_b_params`        | 模型总参数量（十亿）                               |
+| 模型参数 | `num_layers`            | Transformer 层数                                   |
+| 模型参数 | `hidden_size`           | 隐藏层维度                                         |
+| 模型参数 | `num_attention_heads`   | 注意力头数                                         |
+| 模型参数 | `num_key_value_heads`   | KV 头数（GQA 相关）                                |
+| 模型参数 | `model_type`            | 模型架构家族（如 `llama`、`qwen2` 等）             |
+| 硬件规格 | `memory_size_gb`        | GPU 显存容量（GB）                                 |
+| 硬件规格 | `release_year`          | GPU 发布年份                                       |
+| 硬件规格 | `base_clock_mhz`        | GPU 基础频率（MHz）                                |
+| 硬件规格 | `boost_clock_mhz`       | GPU 加速频率（MHz）                                |
+| 硬件规格 | `architecture`          | GPU 架构名称                                       |
+| 硬件规格 | `memory_type`           | 显存类型（`HBM2e` / `GDDR6` 等）                   |
 
 **输出（$y$）**：四个连续数值标签——
 

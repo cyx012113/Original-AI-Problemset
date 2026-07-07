@@ -16,28 +16,25 @@ This dataset originates from the academic paper _Watt Counts: An Empirical Study
 
 **Input (X)** — the following features for each experimental run:
 
-| Dimension | Feature                  | Description                                            |
-| --------- | ------------------------ | ------------------------------------------------------ |
-| Workload  | `lambda_qps`             | Request arrival rate (queries/sec), -1 = offline batch |
-| Workload  | `scenario`               | Operating scenario: offline / server_low / server_high |
-| Workload  | `avg_prompt_tokens`      | Average input tokens per request                       |
-| Workload  | `avg_generation_tokens`  | Average output tokens per request                      |
-| Workload  | `num_requests`           | Number of requests in the experiment                   |
-| Model     | `total_b_params`         | Total model parameters (billions)                      |
-| Model     | `num_layers`             | Number of transformer layers                           |
-| Model     | `hidden_size`            | Hidden layer dimension                                 |
-| Model     | `num_attention_heads`    | Number of attention heads                              |
-| Model     | `num_key_value_heads`    | Number of KV heads (GQA)                               |
-| Model     | `model_type`             | Model architecture family (e.g., llama, qwen2)         |
-| Hardware  | `memory_bandwidth_gb_s`  | GPU memory bandwidth (GB/s)                            |
-| Hardware  | `tflops_16b`             | GPU FP16 compute (TFLOPS)                              |
-| Hardware  | `thermal_design_power_w` | GPU Thermal Design Power (Watts)                       |
-| Hardware  | `memory_size_gb`         | GPU memory capacity (GB)                               |
-| Hardware  | `release_year`           | GPU release year                                       |
-| Hardware  | `base_clock_mhz`         | GPU base clock (MHz)                                   |
-| Hardware  | `boost_clock_mhz`        | GPU boost clock (MHz)                                  |
-| Hardware  | `architecture`           | GPU architecture name                                  |
-| Hardware  | `memory_type`            | Memory type (HBM2e/GDDR6/etc.)                         |
+| Dimension | Feature                 | Description                                            |
+| --------- | ----------------------- | ------------------------------------------------------ |
+| Workload  | `lambda_qps`            | Request arrival rate (queries/sec), -1 = offline batch |
+| Workload  | `scenario`              | Operating scenario: offline / server_low / server_high |
+| Workload  | `avg_prompt_tokens`     | Average input tokens per request                       |
+| Workload  | `avg_generation_tokens` | Average output tokens per request                      |
+| Workload  | `num_requests`          | Number of requests in the experiment                   |
+| Model     | `total_b_params`        | Total model parameters (billions)                      |
+| Model     | `num_layers`            | Number of transformer layers                           |
+| Model     | `hidden_size`           | Hidden layer dimension                                 |
+| Model     | `num_attention_heads`   | Number of attention heads                              |
+| Model     | `num_key_value_heads`   | Number of KV heads (GQA)                               |
+| Model     | `model_type`            | Model architecture family (e.g., llama, qwen2)         |
+| Hardware  | `memory_size_gb`        | GPU memory capacity (GB)                               |
+| Hardware  | `release_year`          | GPU release year                                       |
+| Hardware  | `base_clock_mhz`        | GPU base clock (MHz)                                   |
+| Hardware  | `boost_clock_mhz`       | GPU boost clock (MHz)                                  |
+| Hardware  | `architecture`          | GPU architecture name                                  |
+| Hardware  | `memory_type`           | Memory type (HBM2e/GDDR6/etc.)                         |
 
 **Output (y)** — four continuous target variables:
 

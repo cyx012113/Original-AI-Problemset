@@ -1,8 +1,5 @@
 # ⚡ GPU功耗预测：当 AI 开始操心电费账单 🔋
 
-[![Challenge](https://img.shields.io/badge/NOAI-2026-blue)](https://github.com/your-repo)
-[![Regression](https://img.shields.io/badge/Task-Multi--Target%20Regression-orange)](https://arxiv.org/abs/1234.56789)
-
 > **"给你一张 GPU 的体检报告和一份模型的简历，你能算出这台机器会烧多少电、跑多快吗？"**
 > —— 欢迎来到 **GPU 功耗与性能预测挑战**，让你足不出户，体验一把 **数据中心能效架构师** 的日常。
 
@@ -105,9 +102,6 @@ $$
 | 🧠 模型 | `num_layers`                         | int   | Transformer 层数                               |
 | 🧠 模型 | `hidden_size`                        | int   | 隐藏层维度                                     |
 | 🧠 模型 | `model_type`                         | str   | 架构家族（llama / qwen2 / mistral 等）         |
-| 💻 硬件 | `memory_bandwidth_gb_s`              | float | GPU 显存带宽 (GB/s)                            |
-| 💻 硬件 | `tflops_16b`                         | float | GPU FP16 算力 (TFLOPS)                         |
-| 💻 硬件 | `thermal_design_power_w`             | float | GPU 热设计功耗 (瓦)                            |
 | 💻 硬件 | `memory_size_gb`                     | float | GPU 显存容量 (GB)                              |
 | 🎯 标签 | `gpu_power_draw_watts`               | float | **预测目标1**：平均功耗 (W)                    |
 | 🎯 标签 | `avg_e2e_latency_seconds`            | float | **预测目标2**：端到端延迟 (s)                  |
