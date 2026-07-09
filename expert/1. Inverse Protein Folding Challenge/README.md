@@ -1,8 +1,5 @@
 # 🧬 逆蛋白质折叠挑战：当 AI 学会“看图猜字” 🔮
 
-[![Challenge](https://img.shields.io/badge/NOAI-2026-blue)](https://github.com/your-repo)
-[![Protein Folding](https://img.shields.io/badge/Inverse-Folding-green)](https://arxiv.org/abs/1234.56789)
-
 > **“给你一张蛋白质的 3D 自拍，AI 居然能猜出它原来长啥样？”**
 > —— 没错，这就是 **逆蛋白质折叠**。就像看到一栋摩天大楼的建筑图纸，反推需要多少吨钢材和玻璃。
 
