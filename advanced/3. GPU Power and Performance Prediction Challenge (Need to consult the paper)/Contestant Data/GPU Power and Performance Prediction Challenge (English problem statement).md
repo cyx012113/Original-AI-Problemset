@@ -1,6 +1,6 @@
 # GPU Power and Performance Prediction Challenge
 
-## 1. Background
+## Background
 
 LLM inference deployment is one of the most critical engineering challenges in AI infrastructure. Every user request consumes GPU power and introduces latency — two factors that directly determine data center operating costs and user experience.
 
@@ -12,7 +12,7 @@ That is the problem you are here to solve.
 
 This dataset originates from the academic paper _Watt Counts: An Empirical Study of GPU Power Consumption and Performance in LLM Inference_. It contains thousands of real measurements across 8 data-center-class GPUs, 30+ open-source LLMs, in both offline batch and online serving scenarios. Your task is to **simultaneously predict four core performance metrics** from three input dimensions: **hardware specs + model parameters + workload**.
 
-## 2. Task Definition
+## Task Definition
 
 **Input (X)** — the following features for each experimental run:
 
@@ -47,13 +47,13 @@ This dataset originates from the academic paper _Watt Counts: An Empirical Study
 
 This is a **multi-target regression** task. Build a model that predicts all four metrics simultaneously from hardware, model, and workload features.
 
-## 3. Dataset
+## Dataset
 
-### 3.1 Data Source
+### Data Source
 
 The data comes from the Watt Counts Subset in the _Watt Counts_ paper, measuring real inference performance of 30+ open-source LLMs (from GPT-2 124M to Gemma-3 27B) across 8 GPUs (from Tesla T4 to H200 NVL) in both offline batch and online serving scenarios.
 
-### 3.2 File Description
+### File Description
 
 | File                    | Description                                           |
 | ----------------------- | ----------------------------------------------------- |
@@ -63,7 +63,7 @@ The data comes from the Watt Counts Subset in the _Watt Counts_ paper, measuring
 | `baseline.ipynb`        | Contestant baseline notebook for getting started      |
 | `Paper_Watt_Counts.pdf` | The _Watt Counts_ original paper                      |
 
-### 3.3 Data Characteristics
+### Data Characteristics
 
 - Train, A-test, and B-test sets are randomly split at a 70:15:15 ratio.
 - **Training set has GPU imbalance**: rare high-end GPUs (H200, H100, A100) are intentionally downsampled, simulating real-world data scarcity for expensive hardware. Common GPUs (T4, L4, L40S) have full representation.
@@ -71,11 +71,11 @@ The data comes from the Watt Counts Subset in the _Watt Counts_ paper, measuring
 - Values span extreme ranges — from a 0.5B model on a low-end GPU to a 27B model on an H200 at full throttle.
 - Offline mode entries have `lambda_qps = -1`, representing continuous batch processing without request gaps.
 
-## 4. Evaluation Metrics
+## Evaluation Metrics
 
 This task uses a **composite score** combining the following metrics:
 
-### 4.1 Primary Metric: $R^2$ (Coefficient of Determination)
+### Primary Metric: $R^2$ (Coefficient of Determination)
 
 For each target variable $i$:
 
@@ -87,13 +87,13 @@ $$ \text{Primary Score} = \frac{1}{4} \sum\_{i=1}^{4} R^2_i $$
 
 **Higher is better** (1.0 = perfect prediction).
 
-### 4.2 Auxiliary Metric: WMAPE (Weighted Mean Absolute Percentage Error)
+### Auxiliary Metric: WMAPE (Weighted Mean Absolute Percentage Error)
 
 $$ \text{WMAPE}_i = \frac{\sum_{j} |y*{ij} - \hat{y}*{ij}|}{\sum*{j} |y*{ij}|} \times 100\% $$
 
 The average WMAPE across all four targets serves as auxiliary reference (lower is better).
 
-## 5. Submission Format
+## Submission Format
 
 Submit a CSV file named `A_predict.csv` (for A-leaderboard) or `B_predict.csv` (for B-leaderboard) with the following format:
 
@@ -108,7 +108,7 @@ gpu_power_draw_watts,avg_e2e_latency_seconds,energy_efficiency_tokens_per_joule,
 - **Column names must match** the four target names above exactly
 - **Do NOT include row indices or ID columns**
 
-## 6. Constraints
+## Constraints
 
 To ensure fair competition:
 
@@ -119,12 +119,12 @@ To ensure fair competition:
 | Libraries          | Only standard NOAI libraries allowed (`numpy`, `pandas`, `scikit-learn`, `torch`, `xgboost`, `lightgbm`, etc.)   |
 | External data      | Public GPU/LLM specs are allowed, but **any external copies or variants of this dataset are strictly forbidden** |
 
-## 7. References
+## References
 
-1. _Watt Counts: An Empirical Study of GPU Power Consumption and Performance in LLM Inference_ — original paper for this dataset
+1. [_Watt Counts: An Empirical Study of GPU Power Consumption and Performance in LLM Inference_](https://arxiv.org/pdf/2604.09048) — original paper for this dataset
 2. _LLM Inference Performance Engineering_ — NVIDIA Technical Blog series
 3. _Roofline Model_ — classic performance analysis framework
 
-## 8. License
+## License
 
 This dataset and problem statement are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).

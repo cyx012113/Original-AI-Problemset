@@ -1,6 +1,6 @@
 # GPU 功耗与性能预测挑战
 
-## 1. 背景
+## 背景
 
 大语言模型（LLM）的推理部署是 AI 基础设施中最核心的工程挑战之一。每一次用户请求，GPU 都在消耗电力、产生延迟——而这两者直接决定了数据中心的运营成本和用户体验。
 
@@ -12,7 +12,7 @@
 
 本数据集来源于学术论文 _Watt Counts: An Empirical Study of GPU Power Consumption and Performance in LLM Inference_，包含了 8 种数据中心级 GPU、30+ 种开源 LLM、在离线批处理和在线服务两种场景下的数千次实测数据。你的任务是基于 **硬件规格 + 模型参数 + 运行负载** 这三个维度的输入，**同时预测四个核心性能指标**。
 
-## 2. 任务定义
+## 任务定义
 
 **输入（$X$）**：每条实验记录的以下特征——
 
@@ -47,13 +47,13 @@
 
 这是一个**多目标回归**任务。你需要构建一个模型，能够从硬件、模型和负载三个维度出发，同时预测功耗、延迟、能效和吞吐量这四个关键指标。
 
-## 3. 数据集
+## 数据集
 
-### 3.1 数据来源
+### 数据来源
 
 数据来源于 _Watt Counts_ 论文中的 Watt Counts Subset 实验集，在多种 GPU（Tesla T4 到 H200 NVL）上测试了 30+ 种开源 LLM（从 GPT-2 124M 到 Gemma-3 27B）在离线批处理和在线服务场景下的真实推理性能。
 
-### 3.2 文件说明
+### 文件说明
 
 | 文件                    | 说明                                 |
 | ----------------------- | ------------------------------------ |
@@ -63,7 +63,7 @@
 | `baseline.ipynb`        | 参赛者基线 Notebook，提供入门参考    |
 | `Paper_Watt_Counts.pdf` | _Watt Counts_ 原始论文               |
 
-### 3.3 数据特征
+### 数据特征
 
 - 训练集、A 榜、B 榜按 70:15:15 随机分割。
 - **训练集存在 GPU 不平衡**：高端稀缺显卡（如 H200、H100、A100）在训练集中的样本被有意削减，模拟真实场景中昂贵硬件数据稀缺的情况。常见显卡（T4、L4、L40S）数据充足。
@@ -71,11 +71,11 @@
 - 数据跨度极大——从 0.5B 参数的小模型在低端 GPU 上的低功耗场景，到 27B 大模型在 H200 上的高吞吐场景。
 - 部分数据存在离线模式（$\text{lambda\_qps} = -1$），表示连续批处理，无请求间隔。
 
-## 4. 评价指标
+## 评价指标
 
 本任务采用**综合评分**，由以下两个指标加权得到：
 
-### 4.1 主要指标：$R^2$（决定系数）
+### 主要指标：$R^2$（决定系数）
 
 对于每个目标变量 $i$，计算：
 
@@ -87,13 +87,13 @@ $$ \text{Primary Score} = \frac{1}{4} \sum\_{i=1}^{4} R^2_i $$
 
 得分**越高越好**（$1.0$ 为完美预测）。
 
-### 4.2 辅助指标：WMAPE（加权平均绝对百分比误差）
+### 辅助指标：WMAPE（加权平均绝对百分比误差）
 
 $$ \text{WMAPE}_i = \frac{\sum_{j} |y*{ij} - \hat{y}*{ij}|}{\sum*{j} |y*{ij}|} \times 100\% $$
 
 四个目标的 WMAPE 取平均作为辅助参考（越低越好）。
 
-## 5. 提交格式
+## 提交格式
 
 你需要提交一个 CSV 文件，命名为 `A_predict.csv`（A 榜）或 `B_predict.csv`（B 榜），格式如下：
 
@@ -108,7 +108,7 @@ gpu_power_draw_watts,avg_e2e_latency_seconds,energy_efficiency_tokens_per_joule,
 - **列名必须完全匹配**上述四个标签名
 - **不需要包含行索引或 ID 列**
 
-## 6. 约束条件
+## 约束条件
 
 为了确保比赛的公平性，请遵守以下限制：
 
@@ -119,12 +119,12 @@ gpu_power_draw_watts,avg_e2e_latency_seconds,energy_efficiency_tokens_per_joule,
 | 第三方库       | 仅限 NOAI 考纲内库（`numpy`、`pandas`、`scikit-learn`、`torch`、`xgboost`、`lightgbm` 等） |
 | 外部数据       | 可以使用公开的 GPU / LLM 规格数据，但**严禁使用本数据集的任何外部副本或变体**              |
 
-## 7. 参考资料
+## 参考资料
 
-1. _Watt Counts: An Empirical Study of GPU Power Consumption and Performance in LLM Inference_ — 本数据集的原始论文
+1. [_Watt Counts: An Empirical Study of GPU Power Consumption and Performance in LLM Inference_](https://arxiv.org/pdf/2604.09048) — 本数据集的原始论文
 2. _LLM Inference Performance Engineering_ — NVIDIA 技术博客系列
 3. _Roofline Model_ — 经典性能分析模型
 
-## 8. 许可
+## 许可
 
 本数据集和题目采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议。
